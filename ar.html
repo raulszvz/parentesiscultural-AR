@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="manifest" href="manifest.json">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <meta name="theme-color" content="#222" />
+    <meta name="description" content="Aplicación de realidad aumentada">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Parentesis cultural">
+    <link rel="apple-touch-icon" href="assets/icons/icon.png">
+
+    <title>Parentesis cultural</title>
+    
+    <link rel="icon" href="./assets/icons/icon.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    
+    <script src="./js/lib/aframe.min.js"></script>
+    <script src="./js/lib/aframe-ar.min.js"></script>
+    <script src="./js/lib/aframe-extras.loaders.min.js"></script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+        <a-assets>
+            <a-asset-item id="animated-asset" src="./assets/models/space.gltf"></a-asset-item>
+        </a-assets>
+        <a-marker id="animated-marker" type='barcode' value='6'>
+            <a-entity
+                animation-mixer
+                gltf-model="#animated-asset"
+                scale="1 1 1">
+            </a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+        </a-scene>
+    <!--<script src="./js/index.js"></script>-->
+</body>
+</html>
